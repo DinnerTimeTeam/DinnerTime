@@ -10,6 +10,7 @@ namespace DinnerTimeLib
     {
         public int Id { get; set; }
         public Product Product { get; set; }
-        public Amount Amount { get; set; }
+        public Measurement Measurement { get; set; }
+        public decimal Quantity { get; set; }
     }
 }

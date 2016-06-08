@@ -9,7 +9,7 @@ namespace DinnerTimeLib
     public class Product
     {
         public int Id { get; set; }
-        public EAN EAN { get; set; }
+        public string EAN { get; set; }
         public Brand Brand { get; set; }
         public string Name { get; set; }
         public ProductType Type { get; set; }
