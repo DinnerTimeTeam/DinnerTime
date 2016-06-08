@@ -131,8 +131,7 @@ DocProject/Help/*.hhp
 DocProject/Help/Html2
 DocProject/Help/html
 
-App.config
-Web.config
+secret.config
 
 # Click-Once directory
 publish/
