@@ -51,7 +51,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="DinnerTimeContext.cs" />
     <Compile Include="Migrations\201606081243350_initial-migration.cs" />
     <Compile Include="Migrations\201606081243350_initial-migration.Designer.cs">
