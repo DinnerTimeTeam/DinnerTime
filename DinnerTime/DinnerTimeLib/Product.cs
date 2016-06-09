@@ -13,5 +13,7 @@ namespace DinnerTimeLib
         public Brand Brand { get; set; }
         public string Name { get; set; }
         public ProductType Type { get; set; }
+        public Measurement Measurement { get; set; }
+        public decimal Quantity { get; set; }
     }
 }

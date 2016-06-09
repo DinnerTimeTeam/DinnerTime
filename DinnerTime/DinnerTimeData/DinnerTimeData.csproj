@@ -56,6 +56,14 @@
     <Compile Include="Migrations\201606081243350_initial-migration.Designer.cs">
       <DependentUpon>201606081243350_initial-migration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201606090858324_IngredientProductType.cs" />
+    <Compile Include="Migrations\201606090858324_IngredientProductType.Designer.cs">
+      <DependentUpon>201606090858324_IngredientProductType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201606090901161_HouseholdName.cs" />
+    <Compile Include="Migrations\201606090901161_HouseholdName.Designer.cs">
+      <DependentUpon>201606090901161_HouseholdName.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -72,6 +80,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201606081243350_initial-migration.resx">
       <DependentUpon>201606081243350_initial-migration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606090858324_IngredientProductType.resx">
+      <DependentUpon>201606090858324_IngredientProductType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606090901161_HouseholdName.resx">
+      <DependentUpon>201606090901161_HouseholdName.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
