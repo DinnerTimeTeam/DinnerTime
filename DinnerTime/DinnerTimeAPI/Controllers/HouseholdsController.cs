@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
+using System.Web.Http.OData;
 using DinnerTimeData;
 using DinnerTimeLib;
 
@@ -18,6 +15,7 @@ namespace DinnerTimeAPI.Controllers
         private DinnerTimeContext db = new DinnerTimeContext();
 
         // GET: api/Households
+        [EnableQuery]
         public IQueryable<Household> GetHouseholds()
         {
             return db.Households;
