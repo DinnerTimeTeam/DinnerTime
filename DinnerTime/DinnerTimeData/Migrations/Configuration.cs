@@ -3,16 +3,19 @@ using DinnerTimeLib;
 
 namespace DinnerTimeData.Migrations
 {
+    using System;
+    using System.Data.Entity;
     using System.Data.Entity.Migrations;
+    using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<DinnerTimeContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<DinnerTimeData.DinnerTimeContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(DinnerTimeContext context)
+        protected override void Seed(DinnerTimeData.DinnerTimeContext context)
         {
             context.Brand.AddOrUpdate(
                 x => x.Id,
@@ -34,16 +37,9 @@ namespace DinnerTimeData.Migrations
                 new Category { Id = 4, Name = "Frukt & Grönt" }
             );
 
-            context.Users.AddOrUpdate(
-                x => x.Id,
-                new User { Id = 1, Email = "niklas@dinnertime.com", Password = "password" },
-                new User { Id = 2, Email = "anton@dinnertime.com", Password = "password" },
-                new User { Id = 3, Email = "andre@dinnertime.com", Password = "password" }
-            );
-
             context.Households.AddOrUpdate(
                 x => x.Id,
-                new Household { Id = 1, Users = new List<User> { context.Users.Find(1), context.Users.Find(2), context.Users.Find(3) }, Name = "Tallis" }
+                new Household { Id = 1, Name = "Tallis" }
             );
 
             context.Measurements.AddOrUpdate(

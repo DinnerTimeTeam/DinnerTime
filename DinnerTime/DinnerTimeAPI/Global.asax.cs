@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Http;
 using System.Web.Routing;
+using DinnerTimeAPI.Filters;
 
 namespace DinnerTimeAPI
 {
@@ -12,6 +13,9 @@ namespace DinnerTimeAPI
         protected void Application_Start()
         {
             GlobalConfiguration.Configure(WebApiConfig.Register);
+
+            GlobalConfiguration.Configuration.Filters.Add(new RequireHttpsAttribute());
+            GlobalConfiguration.Configuration.Filters.Add(new AuthorizeAttribute());
         }
     }
 }
