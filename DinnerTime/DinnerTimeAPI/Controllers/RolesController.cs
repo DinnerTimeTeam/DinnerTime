@@ -9,7 +9,7 @@ using Microsoft.AspNet.Identity.Owin;
 
 namespace DinnerTimeAPI.Controllers
 {
-    [Authorize(Roles = "Administrator")]
+    [Authorize(Roles = "Admin")]
     public class RolesController : ApiController
     {
         private readonly ApplicationRoleManager manager = HttpContext.Current.GetOwinContext().Get<ApplicationRoleManager>();
