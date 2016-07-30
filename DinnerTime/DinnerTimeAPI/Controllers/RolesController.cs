@@ -3,6 +3,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
+using DinnerTimeLib;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
@@ -14,12 +15,13 @@ namespace DinnerTimeAPI.Controllers
     {
         private readonly ApplicationRoleManager manager = HttpContext.Current.GetOwinContext().Get<ApplicationRoleManager>();
 
-        public IEnumerable<IdentityRole> GetRoles()
+        public IEnumerable<CustomRole> GetRoles()
         {
             return manager.Roles.ToList();
         }
 
-        public async Task<IHttpActionResult> PostRole(IdentityRole role)
+        [AllowAnonymous]
+        public async Task<IHttpActionResult> PostRole(CustomRole role)
         {
             IdentityResult result = await manager.CreateAsync(role);
             if (result.Succeeded)

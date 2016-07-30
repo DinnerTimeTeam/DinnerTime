@@ -7,7 +7,7 @@ namespace DinnerTimeData
     using System.Data.Entity;
     using System.Linq;
 
-    public class DinnerTimeContext : IdentityDbContext<User>
+    public class DinnerTimeContext : IdentityDbContext<User, CustomRole, int, CustomUserLogin, CustomUserRole, CustomUserClaim>
     {
         public DinnerTimeContext()
             : base("name=DinnerTimeContext")

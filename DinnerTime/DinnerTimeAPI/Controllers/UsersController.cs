@@ -26,6 +26,7 @@ namespace DinnerTimeAPI.Controllers
         }
 
         // POST: api/Accounts
+        [AllowAnonymous]
         public async Task<IHttpActionResult> PostAccount(User user)
         {
             IdentityResult result = await manager.CreateAsync(user, "Password1!");
@@ -35,15 +36,17 @@ namespace DinnerTimeAPI.Controllers
             return BadRequest(result.Errors.First());
         }
 
-        [Route("api/users/{username}/roles/{rolename}")]
+        [AllowAnonymous]
+        [Route("api/users/{userid}/roles/{roleid}")]
         [HttpPost]
-        public async Task<IHttpActionResult> AssignUserToRole(string username, string rolename)
+        public async Task<IHttpActionResult> AssignUserToRole(int userid, int roleid)
         {
-            User user = await manager.FindByNameAsync(username);
-            IdentityResult result = await manager.AddToRoleAsync(user.Id, rolename);
+            User user = await manager.FindByIdAsync(userid);
+            CustomRole role = db.Roles.Find(roleid);
+            IdentityResult result = await manager.AddToRoleAsync(user.Id, role.Name);
 
             if (result.Succeeded)
-                return Ok($"Added {user.UserName} to role {rolename}");
+                return Ok($"Added {user.UserName} to role {role.Name}");
 
             return BadRequest(result.Errors.First());
         }

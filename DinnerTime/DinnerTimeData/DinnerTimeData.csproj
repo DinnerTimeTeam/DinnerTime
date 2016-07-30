@@ -72,6 +72,10 @@
     <Compile Include="Migrations\201607301507099_MultipleHouseholds1.Designer.cs">
       <DependentUpon>201607301507099_MultipleHouseholds1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201607301532115_IdentityIntPK.cs" />
+    <Compile Include="Migrations\201607301532115_IdentityIntPK.Designer.cs">
+      <DependentUpon>201607301532115_IdentityIntPK.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -94,6 +98,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201607301507099_MultipleHouseholds1.resx">
       <DependentUpon>201607301507099_MultipleHouseholds1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201607301532115_IdentityIntPK.resx">
+      <DependentUpon>201607301532115_IdentityIntPK.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

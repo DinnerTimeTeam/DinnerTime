@@ -1,4 +1,5 @@
-﻿using DinnerTimeData;
+﻿using DinnerTimeAPI.Models;
+using DinnerTimeData;
 using DinnerTimeLib;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
@@ -7,29 +8,29 @@ using Microsoft.Owin;
 
 namespace DinnerTimeAPI
 {
-    public class ApplicationRoleManager : RoleManager<IdentityRole>
+    public class ApplicationRoleManager : RoleManager<CustomRole, int>
     {
-        public ApplicationRoleManager(IRoleStore<IdentityRole, string> store) : base(store)
+        public ApplicationRoleManager(IRoleStore<CustomRole, int> store) : base(store)
         {
         }
 
         public static ApplicationRoleManager Create(IdentityFactoryOptions<ApplicationRoleManager> options, IOwinContext context)
         {
-            return new ApplicationRoleManager(new RoleStore<IdentityRole>(context.Get<DinnerTimeContext>()));
+            return new ApplicationRoleManager(new CustomRoleStore(context.Get<DinnerTimeContext>()));
         }
     }
 
-    public class ApplicationUserManager : UserManager<User>
+    public class ApplicationUserManager : UserManager<User, int>
     {
-        public ApplicationUserManager(IUserStore<User> store) : base(store)
+        public ApplicationUserManager(IUserStore<User, int> store) : base(store)
         {
         }
 
         public static ApplicationUserManager Create(IdentityFactoryOptions<ApplicationUserManager> options, IOwinContext context)
         {
-            var manager = new ApplicationUserManager(new UserStore<User>(context.Get<DinnerTimeContext>()));
+            var manager = new ApplicationUserManager(new CustomUserStore(context.Get<DinnerTimeContext>()));
             // Configure validation logic for usernames
-            manager.UserValidator = new UserValidator<User>(manager)
+            manager.UserValidator = new UserValidator<User, int>(manager)
             {
                 AllowOnlyAlphanumericUserNames = false,
                 RequireUniqueEmail = false
@@ -46,7 +47,7 @@ namespace DinnerTimeAPI
             var dataProtectionProvider = options.DataProtectionProvider;
             if (dataProtectionProvider != null)
             {
-                manager.UserTokenProvider = new DataProtectorTokenProvider<User>(dataProtectionProvider.Create("ASP.NET Identity"));
+                manager.UserTokenProvider = new DataProtectorTokenProvider<User, int>(dataProtectionProvider.Create("ASP.NET Identity"));
             }
             return manager;
         }
