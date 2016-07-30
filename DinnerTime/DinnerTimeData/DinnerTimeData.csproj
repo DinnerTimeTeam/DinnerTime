@@ -64,9 +64,16 @@
     <Compile Include="Migrations\201607301245455_Init.Designer.cs">
       <DependentUpon>201607301245455_Init.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201607301503584_MultipleHouseholds.cs" />
+    <Compile Include="Migrations\201607301503584_MultipleHouseholds.Designer.cs">
+      <DependentUpon>201607301503584_MultipleHouseholds.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201607301507099_MultipleHouseholds1.cs" />
+    <Compile Include="Migrations\201607301507099_MultipleHouseholds1.Designer.cs">
+      <DependentUpon>201607301507099_MultipleHouseholds1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="User.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -81,6 +88,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201607301245455_Init.resx">
       <DependentUpon>201607301245455_Init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201607301503584_MultipleHouseholds.resx">
+      <DependentUpon>201607301503584_MultipleHouseholds.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201607301507099_MultipleHouseholds1.resx">
+      <DependentUpon>201607301507099_MultipleHouseholds1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

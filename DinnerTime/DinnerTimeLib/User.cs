@@ -1,14 +1,14 @@
-﻿using System.Security.Claims;
+﻿using System.Collections.Generic;
+using System.Security.Claims;
 using System.Threading.Tasks;
-using DinnerTimeLib;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 
-namespace DinnerTimeData
+namespace DinnerTimeLib
 {
     public class User : IdentityUser
     {
-        public Household Household { get; set; }
+        public List<Household> Households { get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<User> manager, string authenticationType)
         {
