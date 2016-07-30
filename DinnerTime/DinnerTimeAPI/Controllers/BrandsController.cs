@@ -4,7 +4,6 @@ using System.Linq;
 using System.Net;
 using System.Web.Http;
 using System.Web.Http.Description;
-using System.Web.Http.OData;
 using DinnerTimeData;
 using DinnerTimeLib;
 
@@ -15,7 +14,6 @@ namespace DinnerTimeAPI.Controllers
         private DinnerTimeContext db = new DinnerTimeContext();
 
         // GET: api/Brands
-        [EnableQuery]
         public IQueryable<Brand> GetBrand()
         {
             return db.Brand;
